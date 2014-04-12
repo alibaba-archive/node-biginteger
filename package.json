@@ -1,0 +1,32 @@
+{
+  "name": "BigInteger",
+  "version": "0.0.1",
+  "description": "BigInteger",
+  "keywords": [
+    "BigInteger"
+  ],
+  "author": {
+    "name": "汤尧",
+    "email": "tangyao@alibaba-inc.com"
+  },
+  "homepage": "https://github.com/coolme200/BigInteger",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:coolme200/BigInteger.git"
+  },
+  "dependencies": {
+    "debug": "0.8.0",
+    "long": "1.1.2"
+  },
+  "devDependencies": {
+    "should": "*",
+    "mocha": ">=1.2.1",
+    "pedding": "*"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "main": "index.js",
+  "readme": "## BigInteger",
+  "readmeFilename": "Readme.md"
+}

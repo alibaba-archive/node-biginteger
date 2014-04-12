@@ -1,0 +1,7 @@
+node_modules/
+tmp/
+logs/
+cov/
+coverage.html
+.DS_store
+test/config.js
