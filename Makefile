@@ -1,5 +1,5 @@
 TESTS = $(shell ls -S `find test -type f -name "*.test.js" -print`)
-TIMEOUT = 300000
+TIMEOUT = 10000
 MOCHA_OPTS =
 REPORTER = tap
 PROJECT_DIR = $(shell pwd)
