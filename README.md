@@ -1,16 +1,16 @@
 # BigInteger
 
-#### `BitInteger fromLong(val)`
+#### `BigInteger fromLong(val)`
 
-#### `BitInteger fromString(val, radix)`
+#### `BigInteger fromString(val, radix)`
 
-#### 'BitInteger fromBuffer(signum, magnitude) x'
+#### `BigInteger fromBuffer(signum, magnitude) x`
 
 #### `Buffer toBuffer()`
 
 #### `String toString()`
 
-#### `BitInteger abs()`
+#### `BigInteger abs()`
 
 #### `BigInteger negative()`
 
