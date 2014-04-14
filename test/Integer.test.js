@@ -12,4 +12,9 @@ describe('Integer', function () {
     done();
   });
 
+  it('#bitCount() x', function (done) {
+
+    done();
+  });
+
 });

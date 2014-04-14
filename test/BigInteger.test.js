@@ -29,17 +29,6 @@ describe('BigInteger', function () {
     done();
   });
 
-  it('#toString() x', function (done) {
-    var n = BigInteger.fromString('-1649a75c212838e75e09a31f95885cc4', 16);
-    n.toString().should.eql('-29625448039597583839432359987556932804');
-    done();
-  });  
-
-  it('#bitCount() x', function (done) {
-
-    done();
-  });
-
   it('#bitLength() x', function (done) {
 
     done();
@@ -53,16 +42,11 @@ describe('BigInteger', function () {
   it('#negative() x', function (done) {
 
     done();
-  });
+  }); 
 
-  it('#primitiveLeftShift()', function (done) {
-    var divisor = [232830643, -1486618624];
-    var rs = [-569676998, 1983905792];
-    var dlen = 2;
-    var shift = 4;
-    BigInteger.primitiveLeftShift(divisor, dlen, shift);
-    divisor[0].should.eql(rs[0]);
-    divisor[1].should.eql(rs[1]);
+  it('#toString()', function (done) {
+    var n = BigInteger.fromString('-1649a75c212838e75e09a31f95885cc4', 16);
+    n.toString().should.eql('-29625448039597583839432359987556932804');
     done();
   });  
 
