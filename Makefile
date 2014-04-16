@@ -21,8 +21,9 @@ test:
 
 cov:
 	@rm -rf cov
-	@$(JSCOVERAGE) --exclude=test . cov
-	@cp -rf ./node_modules cov
+	@$(JSCOVERAGE) --exclude=test --exclude=public --exclude=tmp \
+		--exclude=bin --exclude=conf . cov
+	@cp -rf ./node_modules ./test cov
 
 test-cov: cov
 	@$(MAKE) -C ./cov test REPORTER=dot

@@ -21,7 +21,8 @@
   "devDependencies": {
     "should": "*",
     "mocha": ">=1.2.1",
-    "pedding": "*"
+    "pedding": "*",
+    "jscover": "*"
   },
   "scripts": {
     "test": "make test"

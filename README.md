@@ -16,7 +16,7 @@
 
 #### `BigInteger fromBuffer(signum, magnitude) √`
 
-#### `BigInteger add(val) x`
+#### `BigInteger add(val) √`
 
 #### `BigInteger and(val) x`
 
@@ -47,6 +47,8 @@
 #### `BigInteger subtract(val) x`
 
 #### `BigInteger xor(val) x`
+
+#### `BigInteger modPow(exponent, m)`
 
 
 
