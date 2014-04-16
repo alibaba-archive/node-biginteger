@@ -18,6 +18,10 @@
 
 #### `BigInteger add(val) √`
 
+#### `BigInteger subtract(val) √`
+
+#### `BigInteger multiply(val) x`
+
 #### `BigInteger and(val) x`
 
 #### `BigInteger andNot(val) x`
@@ -32,8 +36,6 @@
 
 #### `Boolean equals(x) x`
 
-#### `BigInteger multiply(val) x`
-
 #### `BigInteger not() x`
 
 #### `BigInteger or() x`
@@ -43,8 +45,6 @@
 #### `BigInteger shiftLeft(n) x`
 
 #### `BigInteger shiftRight(n) x`
-
-#### `BigInteger subtract(val) x`
 
 #### `BigInteger xor(val) x`
 

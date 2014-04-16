@@ -68,4 +68,20 @@ describe('BigInteger', function () {
     done();
   });
 
+  it('#subtract()', function (done) {
+
+    var n = BigInteger.fromString('-1649a75c212838e75e09a31f95885cc4', 16);
+    var n1 = n.subtract(n);
+    n1.toString().should.eql('0');
+
+    var n2 = n.subtract(BigInteger.fromString('1649a75c212838e75e09a31f95885cc4', 16));
+    n2.toString().should.eql('-59250896079195167678864719975113865608');
+
+    var n4 = BigInteger.fromBuffer(-1, new Buffer('hello1234')).subtract(n);
+    n4.toString(10).should.eql('29625448039597581913662640801625549200');
+
+    done();
+
+  });
+
 });
