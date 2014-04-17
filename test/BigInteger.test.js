@@ -84,4 +84,16 @@ describe('BigInteger', function () {
 
   });
 
+  it('#multiply()', function (done) {
+    var n = BigInteger.fromString('4', 10);
+    var n1 = n.multiply(BigInteger.fromString('4', 10));
+    n1.toString().should.eql('16');
+
+    var n = BigInteger.fromString('1649a75c212838e75e09a31f95885cc4', 16);
+    var n1 = n.multiply(BigInteger.fromBuffer(1, new Buffer('hello1234')));
+    n1.toString().should.eql('57051790751973240447433385155385407248918430815970175345616');    
+
+    done();
+  });
+
 });
