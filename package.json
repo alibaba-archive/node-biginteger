@@ -22,7 +22,8 @@
     "should": "*",
     "mocha": ">=1.2.1",
     "pedding": "*",
-    "jscover": "*"
+    "jscover": "*",
+    "rewire": "*"
   },
   "scripts": {
     "test": "make test"

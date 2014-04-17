@@ -1,6 +1,7 @@
 var pedding = require('pedding');
 var should = require('should');
-var BigInteger = require('../lib/BigInteger');
+var rewire = require('rewire');
+var BigInteger = rewire('../lib/BigInteger');
 var Long = require('long');
 
 describe('BigInteger', function () {
@@ -48,6 +49,9 @@ describe('BigInteger', function () {
   it('#toString()', function (done) {
     var n = BigInteger.fromString('-1649a75c212838e75e09a31f95885cc4', 16);
     n.toString().should.eql('-29625448039597583839432359987556932804');
+      
+    var n = BigInteger.fromMag([246752, -1590483493, 1026437694, -1650966168, 1302453669, -2061979589, -1322696806, -1021457984, -929746066, -235164568, -2018752966, -836472077, -979803355, -1357116076, 1860959356, 772980992], 1);
+    n.toString().should.eql('770299664011129139433679167424561096649974571934768846338049791388830494291999678886952832217429827452869220180212280123272521504180623355525727437056');
     done();
   });
 
@@ -95,5 +99,45 @@ describe('BigInteger', function () {
 
     done();
   });
+
+  it('#and()', function (done) {
+
+    var n = BigInteger.fromString('1649a75c212838e75e09a31f95885cc4', 16);
+    var n1 = n.and(BigInteger.fromBuffer(1, new Buffer('hello1234')));
+    n1.toString().should.eql('1775789634519591555076'); 
+      
+    done();
+
+  });
+
+  it('#squareToLen()', function (done) {
+
+    var z = BigInteger.squareToLen([373925724, 556284135, 1577689887, -1786225468], 4, null);
+    JSON.stringify(z).should.eql(JSON.stringify([32554484, -1247336670, -1953533566, 447288530, 680235003, 468127167, -1438116842, -639797744]));
+    
+    var z = BigInteger.squareToLen([32554484, -1247336670, -1953533566, 447288530, 680235003, 468127167, -1438116842, -639797744],8,null);
+    var rs = [246752, -1590483493, 1026437694, -1650966168, 1302453669, -2061979589, -1322696806, -1021457984, -929746066, -235164568, -2018752966, -836472077, -979803355, -1357116076, 1860959356, 772980992];
+    z.length.should.eql(rs.length);
+    z.forEach(function (x, i) {
+      x.should.eql(rs[i]);
+    });
+    
+    done();
+  });
+
+  it('#pow()', function (done) {
+
+    var n = BigInteger.fromString('2', 10);
+    var n1 = n.pow(2);
+    n1.toString().should.eql('4'); 
+
+    var n = BigInteger.fromString('1649a75c212838e75e09a31f95885cc4', 16);
+    var n1 = n.pow(4);
+    n1.toString().should.eql('770299664011129139433679167424561096649974571934768846338049791388830494291999678886952832217429827452869220180212280123272521504180623355525727437056'); 
+      
+    done();
+
+  });
+  
 
 });

@@ -20,9 +20,13 @@
 
 #### `BigInteger subtract(val) √`
 
-#### `BigInteger multiply(val) x`
+#### `BigInteger multiply(val) √`
 
-#### `BigInteger and(val) x`
+#### `BigInteger and(val) √`
+
+#### `BigInteger pow(exponent) √`
+
+#### `BigInteger or() x`
 
 #### `BigInteger andNot(val) x`
 
@@ -37,10 +41,6 @@
 #### `Boolean equals(x) x`
 
 #### `BigInteger not() x`
-
-#### `BigInteger or() x`
-
-#### `BigInteger pow(exponent) x`
 
 #### `BigInteger shiftLeft(n) x`
 
