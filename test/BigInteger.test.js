@@ -138,6 +138,52 @@ describe('BigInteger', function () {
     done();
 
   });
+
+  it('#shiftRight()', function (done) {
+
+    var n = BigInteger.fromString('1649a75c212838e75e09a31f95885cc4', 16);
+    var n1 = n.shiftRight(32);
+    n1.toString().should.eql('6897712135593775622414508831'); 
+    
+    done();
+
+  });
+
+  it('#shiftLeft()', function (done) {
+
+    var n = BigInteger.fromString('1649a75c212838e75e09a31f95885cc4', 16);
+    var n1 = n.shiftLeft(32);
+    n1.toString().should.eql('127240330459418935590980101350655993331249577984'); 
+    
+    done();
+
+  });
   
+  it('#equals()', function (done) {
+
+    var n = BigInteger.fromString('1649a75c212838e75e09a31f95885cc4', 16);
+    n.equals(n).should.be.true;
+
+    var n2 = BigInteger.fromString('abc', 16);
+    n.equals(n2).should.be.false;
+
+    done();
+  });
+
+  it('#mod()', function (done) {
+
+    var n = BigInteger.fromString('1649a75c212838e75e09a31f95885cc4', 16);
+    var n1 = n.mod(n);
+    n1.toString().should.eql('0');
+
+    var n = BigInteger.fromString('1649a75c212838e75e09a31f95885cc4', 16);
+    var n1 = n.mod(BigInteger.fromString('abc', 16));
+    n1.toString().should.eql('876');
+
+    done();
+  });
+
+  
+
 
 });

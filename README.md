@@ -1,4 +1,5 @@
 # BigInteger
+==========
 
 #### `BigInteger fromLong(val) √`
 
@@ -24,31 +25,52 @@
 
 #### `BigInteger and(val) √`
 
+#### `BigInteger andNot(val) √`
+
+#### `BigInteger not() √`
+
 #### `BigInteger pow(exponent) √`
 
-#### `BigInteger or() x`
+#### `BigInteger or() √`
 
-#### `BigInteger andNot(val) x`
+#### `BigInteger xor(val) √`
 
-#### `int bitCount() x`
+#### `int bitLength() √`
 
-#### `int bitLength() x`
+#### `int bitCount() √`
 
-#### `BigInteger clearBit(n) x`
+#### `BigInteger clearBit(n) √`
 
-#### `BigInteger compareTo(val) x`
+#### `BigInteger compareTo(val) √`
 
-#### `Boolean equals(x) x`
+#### `Boolean equals(x) √`
 
-#### `BigInteger not() x`
+#### `BigInteger shiftLeft(n) √`
 
-#### `BigInteger shiftLeft(n) x`
+#### `BigInteger shiftRight(n) √`
 
-#### `BigInteger shiftRight(n) x`
+#### `BigInteger mod(n) √`
 
-#### `BigInteger xor(val) x`
+#### `BigInteger modPow(exponent, m) x`
 
-#### `BigInteger modPow(exponent, m)`
+#### java -> js
+
+```
+  long LONG_MASK = 0xffffffffL;
+  
+  int a = 1;
+  a & LONG_MASK 
+    ==> a >>> 32;
+
+  int qrem = 0;
+  long rs = ((qrem & LONG_MASK) << 32) 
+    ==> Long.fromNumber(qrem >>> 32).shiftLeft(32);
+
+```
+
+## License
+MIT
+
 
 
 

@@ -200,6 +200,23 @@ describe('MutableBigInteger', function () {
     done();
   });
 
+  it('#divideOneWord()', function (done) {
+    var test = new MutableBigInteger();
+    test.intLen = 4;
+    test.offset = 0;
+    test.value = [373925724, 556284135, 1577689887, -1786225468];
+    
+    var quotient = new MutableBigInteger();
+    quotient.intLen = 0;
+    quotient.offset = 0;
+    quotient.value = [0];
+
+    var rem = test.divideOneWord(2748, quotient);
+    rem.should.eql(876);
+
+    done();
+
+  });
   
 
 });
