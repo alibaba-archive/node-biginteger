@@ -28,6 +28,6 @@
     "test": "make test"
   },
   "main": "index.js",
-  "readme": "## BigInteger",
+  "readme": "## BigInteger \n > @see java.math.BigInteger",
   "readmeFilename": "Readme.md"
 }
