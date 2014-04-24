@@ -51,7 +51,7 @@
 
 #### `BigInteger mod(n) √`
 
-#### `BigInteger modPow(exponent, m) x`
+#### `BigInteger modPow(exponent, m) √`
 
 #### java -> js
 
