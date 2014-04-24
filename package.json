@@ -1,6 +1,6 @@
 {
   "name": "node-biginteger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "BigInteger",
   "keywords": [
     "BigInteger"
@@ -28,6 +28,6 @@
     "test": "make test"
   },
   "main": "index.js",
-  "readme": "## BigInteger",
+  "readme": "## BigInteger \n > @see java.math.BigInteger",
   "readmeFilename": "Readme.md"
 }
