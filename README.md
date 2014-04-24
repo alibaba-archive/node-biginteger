@@ -1,6 +1,12 @@
 # BigInteger 
-@see java.math.BigInteger
-==========
+> @see java.math.BigInteger
+
+```
+  $ npm install node-biginteger
+
+  var BigInteger = require('node-biginteger');
+  
+```
 
 #### `BigInteger fromLong(val) √`
 
