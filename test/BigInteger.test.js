@@ -183,7 +183,61 @@ describe('BigInteger', function () {
     done();
   });
 
-  
+  it('#montReduce()', function (done) {
+
+    var b = [ 0, 2, -318705130, 1861126921 ];
+    var mod = [ 2, -1356139857 ];
+    var modLen = 2;
+    var inv = 208184004;
+
+    var rs = BigInteger.montReduce(b, mod, modLen, inv);
+    JSON.stringify(rs).should.eql(JSON.stringify([1, -275680574, -1193753352, -316060955]));
+    // [ 1, 1574182409, 0, 0 ]
+    done();
+
+  });
+
+  it('#oddModPow()', function (done) {
+
+    var y = BigInteger.fromMag([16], 1);
+    var z = BigInteger.fromMag([687], 1);
+
+    var test = BigInteger.fromMag([189], 1);
+
+    var rs = test.oddModPow(y, z);
+    JSON.stringify(rs.mag).should.eql(JSON.stringify([378]));
+
+
+    var y = BigInteger.fromMag([16], 1);
+    var z = BigInteger.fromMag([2, -1356139857], 1);
+
+    var test = BigInteger.fromMag([2, 332369740], 1);
+
+    var rs = test.oddModPow(y, z);
+    JSON.stringify(rs.mag).should.eql(JSON.stringify([2, -2116968924]));
+
+    done();
+
+  });  
+
+  it('#modPow()', function (done) {
+
+    var n1 = BigInteger.fromString('1649a75c212838e75e09a31f95885cc4', 16);
+    var n2 = n1.modPow(BigInteger.fromString("16"), BigInteger.fromString("abc", 16));
+    n2.toString().should.eql('1752');
+
+    var n1 = BigInteger.fromString('1649a75c212838e75e09a31f95885cc4', 16);
+    n1 = n1.pow(16);
+    
+    n1.toString().should.eql('352077955572113749997766377800604444622460076305148734968729358265317637098322962367820050347875583315344462964959665575949583116858309826255943650974517847912636933043978007322657211481406063863803949575003585086657243583913635357700112214488990102841758130001472359622751803579436110307628748204242262026718059412403465177436225378758674098108230598260597569124215061062220122063183945992340833626410963722148168454106006573450244960544517302509105365797445155768980556404517176572624540378353645377100167311486845332613253103175716184748878557825330895970505263892076714272346348610201111018602496');
+    
+    var n2 = n1.modPow(BigInteger.fromString("16"), BigInteger.fromString("abcabcabc", 16));
+    n2.toString().should.eql('10767932964');
+
+    done();
+
+  }); 
 
 
 });
+

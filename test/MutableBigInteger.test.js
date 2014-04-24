@@ -218,6 +218,14 @@ describe('MutableBigInteger', function () {
 
   });
   
+  it('#inverseMod32()', function (done) {
+
+    var rs = MutableBigInteger.inverseMod32(687);
+    rs.should.eql(1831769167);
+    done();
+
+  });
+
 
 });
 
