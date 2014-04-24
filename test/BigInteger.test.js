@@ -1,7 +1,6 @@
 var pedding = require('pedding');
 var should = require('should');
-var rewire = require('rewire');
-var BigInteger = rewire('../lib/BigInteger');
+var BigInteger = require('../lib/BigInteger');
 var Long = require('long');
 
 describe('BigInteger', function () {

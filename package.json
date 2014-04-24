@@ -9,10 +9,10 @@
     "name": "汤尧",
     "email": "tangyao@alibaba-inc.com"
   },
-  "homepage": "https://github.com/coolme200/BigInteger",
+  "homepage": "https://github.com/node-modules/BigInteger",
   "repository": {
     "type": "git",
-    "url": "git@github.com:coolme200/BigInteger.git"
+    "url": "git@github.com:node-modules/BigInteger.git"
   },
   "dependencies": {
     "debug": "0.8.0",
@@ -22,8 +22,7 @@
     "should": "*",
     "mocha": ">=1.2.1",
     "pedding": "*",
-    "jscover": "*",
-    "rewire": "*"
+    "jscover": "*"
   },
   "scripts": {
     "test": "make test"

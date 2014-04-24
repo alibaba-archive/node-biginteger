@@ -38,7 +38,7 @@ describe('MutableBigInteger', function () {
     done();
   });
 
-  it('(int) (nChunk / dhLong); (int) (nChunk - (qhat * dhLong));', function (done) {
+  it('Algorithm validation', function (done) {
     var nChunk,dhLong,qhat,qrem;
 
     nChunk = 5982811586;
@@ -49,11 +49,7 @@ describe('MutableBigInteger', function () {
     qrem = Long.fromNumber(nChunk).subtract(Long.fromInt(qhat).multiply(Long.fromNumber(dhLong))).low;
     qrem.should.eql(-2037446008);
 
-    done();
-  });
-
-
-  it('(product >>> 32) + (((difference & LONG_MASK) > (((~(int)product) & LONG_MASK))) ? 1:0);', function (done) {
+    //
     var product,difference,carry;
     
     product = Long.fromString('1983905792',10);
@@ -70,6 +66,27 @@ describe('MutableBigInteger', function () {
       Long.fromNumber(difference.low >>>32).compare(Long.fromNumber(~product.low >>> 32)) > 0 ? Long.fromInt(1) : Long.fromInt(0)
     );
     carry.toNumber().should.eql(1202244442);
+
+    // 
+    var dl = 1983905792;
+    var qhat = 1;
+    var estProduct = (dl >>> 32) * (qhat >>> 32);
+    estProduct.should.eql(1983905792);
+    
+    estProduct = Long.fromNumber(dl >>> 32).multiply(Long.fromNumber(qhat >>> 32));
+    estProduct.toNumber().should.eql(1983905792);
+
+    // 
+    var dh = -569676998;
+    var dhLong = dh >>> 32;
+    dhLong.should.eql(3725290298);
+    
+    // var nChunk = (1 << 32) | (1687844290 >>> 32);
+    var a = Long.fromInt(1).shiftLeft(32);
+    var b = Long.fromInt(1687844290);
+    var nChunk = a.or(b).toNumber();
+    nChunk.should.eql(5982811586);
+
     done();
   });
 
@@ -132,19 +149,6 @@ describe('MutableBigInteger', function () {
     done();
   });
 
-  it('(dl & LONG_MASK) * (qhat & LONG_MASK)', function (done) {
-    
-    var dl = 1983905792;
-    var qhat = 1;
-    var estProduct = (dl >>> 32) * (qhat >>> 32);
-    estProduct.should.eql(1983905792);
-    
-    estProduct = Long.fromNumber(dl >>> 32).multiply(Long.fromNumber(qhat >>> 32));
-    estProduct.toNumber().should.eql(1983905792);
-
-    done();
-  });
-
   it('#rightShift()', function (done) {
 
     done();
@@ -179,24 +183,6 @@ describe('MutableBigInteger', function () {
     rem.intLen.should.eql(5);
     JSON.stringify(oldValue).should.eql(JSON.stringify([1, 1687844290, 310611573, -526765575, 1485163584]));
 
-    done();
-  });
-
-  it('int & long -> long', function (done) {
-
-    var dh = -569676998;
-    var dhLong = dh >>> 32;
-    dhLong.should.eql(3725290298);
-    
-    done();
-  });
-
-  it('nh << 32 | nm & LONG_MASK', function (done) {
-    // var nChunk = (1 << 32) | (1687844290 >>> 32);
-    var a = Long.fromInt(1).shiftLeft(32);
-    var b = Long.fromInt(1687844290);
-    var nChunk = a.or(b).toNumber();
-    nChunk.should.eql(5982811586);
     done();
   });
 

@@ -1,4 +1,5 @@
-# BigInteger
+# BigInteger 
+@see java.math.BigInteger
 ==========
 
 #### `BigInteger fromLong(val) √`
@@ -52,21 +53,6 @@
 #### `BigInteger mod(n) √`
 
 #### `BigInteger modPow(exponent, m) √`
-
-#### java -> js
-
-```
-  long LONG_MASK = 0xffffffffL;
-  
-  int a = 1;
-  a & LONG_MASK 
-    ==> a >>> 32;
-
-  int qrem = 0;
-  long rs = ((qrem & LONG_MASK) << 32) 
-    ==> Long.fromNumber(qrem >>> 32).shiftLeft(32);
-
-```
 
 ## License
 MIT
