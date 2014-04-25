@@ -1,64 +1,154 @@
-# BigInteger 
-> @see java.math.BigInteger
+node-biginteger
+======
+
+This library is based on [java.math.BigInteger](http://docs.oracle.com/javase/7/docs/api/java/math/BigInteger.html)
+Dependency [Long](https://github.com/dcodeIO/Long.js.git)
+
+example
+======
 
 ```
   $ npm install node-biginteger
 
   var BigInteger = require('node-biginteger');
+  var n = BigInteger.fromString('abc', 16);
+  n.toString(16);
   
 ```
 
-#### `BigInteger fromLong(val) √`
+Class Method: BigInteger.fromLong(val)
+------
+- val Long
+- Return: BigInteger
 
-#### `BigInteger fromString(val, radix) √`
+Class Method: BigInteger.fromString(val, [radix])
+------
+- val String
+- radix int,Optional, Default: 10
+- Return: BigInteger
 
-#### `Buffer toBuffer() √`
+Class Method: BigInteger.fromBuffer(signum, magnitude)
+------
+- signum int, 1,0,-1
+- magnitude Array
+- Return: BigInteger
 
-#### `String toString() √`
+n.toBuffer()
+------
+- Return: Buffer
 
-#### `BigInteger abs() √`
+n.toString()
+------
+- Return: String
 
-#### `BigInteger negative() √`
+n.abs()
+------
+- Return: BigInteger
 
-#### `Long longValue() √`
+n.negative()
+------
+- Return: BigInteger
 
-#### `BigInteger fromBuffer(signum, magnitude) √`
+n.longValue()
+------
+- Return: Long
 
-#### `BigInteger add(val) √`
+n.add(val)
+------
+- val BigInteger
+- Return: BigInteger
 
-#### `BigInteger subtract(val) √`
+n.subtract(val)
+------
+- val BigInteger
+- Return: BigInteger
 
-#### `BigInteger multiply(val) √`
+n.multiply(val)
+------
+- val BigInteger
+- Return: BigInteger
 
-#### `BigInteger and(val) √`
+n.and(val)
+------
+- val BigInteger
+- Return: BigInteger
 
-#### `BigInteger andNot(val) √`
+n.andNot(val)
+------
+- val BigInteger
+- Return: BigInteger
 
-#### `BigInteger not() √`
+n.not()
+------
+- Return: BigInteger
 
-#### `BigInteger pow(exponent) √`
+n.pow(exponent)
+------
+- exponent int
+- Return: BigInteger
 
-#### `BigInteger or() √`
+```
+  var n = BigInteger.fromString('2', 10);
+  var n1 = n.pow(2);
+  console.log(n1.toString());
+  // 4
+```
 
-#### `BigInteger xor(val) √`
+n.or()
+------
+- Return: BigInteger
 
-#### `int bitLength() √`
+n.xor(val)
+------
+- val BigInteger
+- Return: BigInteger
 
-#### `int bitCount() √`
+n.bitLength()
+------
+- Return: int
 
-#### `BigInteger clearBit(n) √`
+n.bitCount()
+------
+- Return: int
 
-#### `BigInteger compareTo(val) √`
+n.clearBit(n)
+------
+- n int
+- Return: BigInteger
 
-#### `Boolean equals(x) √`
+n.compareTo(val)
+------
+- val BigInteger
+- Return: BigInteger
 
-#### `BigInteger shiftLeft(n) √`
+n.equals(x)
+------
+- x BigInteger
+- Return: Boolean
 
-#### `BigInteger shiftRight(n) √`
+n.shiftLeft(n)
+------
+- n int
+- Return: BigInteger
 
-#### `BigInteger mod(n) √`
+n.shiftRight(n)
+------
+- n int
+- Return: BigInteger
 
-#### `BigInteger modPow(exponent, m) √`
+n.mod(n)
+------
+- n BigInteger
+- Return: BigInteger
+
+
+
+n.modPow(exponent, m)
+------
+- exponent BigInteger
+- m BigInteger
+- Return: BigInteger
+
 
 ## License
 MIT
