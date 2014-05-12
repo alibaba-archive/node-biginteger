@@ -245,6 +245,7 @@ describe('BigInteger', function () {
     test.toString(10).should.eql(msg);
     _m.toString(10).should.eql(m);
     exponent.toString().should.eql(e);
+    
     r.should.eql(test.modPow(exponent, _m).toString(10));
     
     done();

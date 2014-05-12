@@ -93,62 +93,18 @@ n.pow(exponent)
   console.log(n1.toString());
   // 4
 ```
-
-n.or()
+Benchmark
 ------
-- Return: BigInteger
+```
+$ node beanchmark.js
 
-n.xor(val)
-------
-- val BigInteger
-- Return: BigInteger
-
-n.bitLength()
-------
-- Return: int
-
-n.bitCount()
-------
-- Return: int
-
-n.clearBit(n)
-------
-- n int
-- Return: BigInteger
-
-n.compareTo(val)
-------
-- val BigInteger
-- Return: BigInteger
-
-n.equals(x)
-------
-- x BigInteger
-- Return: Boolean
-
-n.shiftLeft(n)
-------
-- n int
-- Return: BigInteger
-
-n.shiftRight(n)
-------
-- n int
-- Return: BigInteger
-
-n.mod(n)
-------
-- n BigInteger
-- Return: BigInteger
-
-
-
-n.modPow(exponent, m)
-------
-- exponent BigInteger
-- m BigInteger
-- Return: BigInteger
-
+  BigInteger#multiply x 68,912 ops/sec ±0.50% (100 runs sampled)
+  bignum#mul x 40,709 ops/sec ±1.30% (90 runs sampled)
+  BigInteger#modPow(long) x 79.62 ops/sec ±0.98% (71 runs sampled)
+  bignum#powm(long) x 22,901 ops/sec ±2.43% (92 runs sampled)
+  BigInteger#modPow(short) x 134,965 ops/sec ±1.19% (97 runs sampled)
+  bignum#powm(short) x 55,922 ops/sec ±2.84% (91 runs sampled)
+```
 
 ## License
 MIT

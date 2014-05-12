@@ -22,7 +22,9 @@
     "should": "*",
     "mocha": ">=1.2.1",
     "pedding": "*",
-    "jscover": "*"
+    "jscover": "*",
+    "bignum": "*",
+    "benchmark": "*"
   },
   "scripts": {
     "test": "make test"
