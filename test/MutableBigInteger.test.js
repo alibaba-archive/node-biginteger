@@ -5,6 +5,19 @@ var Long = require('long');
 
 describe('MutableBigInteger', function () {
 
+  it('#divide()', function (done) {
+    var a = new MutableBigInteger([-1966660860, -1981284351]);
+    var b = new MutableBigInteger([232830643, -1486618624]);
+    var q = new MutableBigInteger();
+
+    var r = a.divide(b, q);
+    r.intLen.should.eql(1);
+    r.offset.should.eql(1);
+    JSON.stringify(r.value).should.eql(JSON.stringify([0, 1, 0]));
+
+    done();
+  });
+
   it('#divide2()', function (done) {
     var a = new MutableBigInteger([373925724, 556284135, 1577689887, -1786225468]);
     var b = new MutableBigInteger([232830643, -1486618624]);

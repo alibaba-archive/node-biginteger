@@ -252,6 +252,25 @@ describe('BigInteger', function () {
 
   }); 
 
+  it('#divide()', function (done) {
+    var n = BigInteger.fromString('1000');
+    var r = n.divide(BigInteger.fromString('10'));
+    r.toString().should.eql('100');
+
+    var n = BigInteger.fromString('10000000000000000000000000000000000000000000000000');
+    var r = n.divide(BigInteger.fromString('1000000000000000000000'));
+    r.toString().should.eql('10000000000000000000000000000');
+
+    done();
+  });
+
+  it('#toString() 10000000000000000001 ', function (done) {
+    var n = BigInteger.fromString('10000000000000000001');
+    JSON.stringify(n.mag).should.eql(JSON.stringify([-1966660860, -1981284351]));
+    n.toString().should.eql('10000000000000000001');
+    done();
+  });
+
 
 });
 

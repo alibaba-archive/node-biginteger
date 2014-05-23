@@ -93,6 +93,12 @@ n.pow(exponent)
   console.log(n1.toString());
   // 4
 ```
+
+n.divide(val)
+------
+- val BigInteger
+- Return: BigInteger 
+
 Benchmark
 ------
 ```
