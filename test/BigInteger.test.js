@@ -40,7 +40,7 @@ describe('BigInteger', function () {
     done();
   });
 
-  it('#negative() x', function (done) {
+  it('#negate() x', function (done) {
 
     done();
   }); 

@@ -45,7 +45,7 @@ n.abs()
 ------
 - Return: BigInteger
 
-n.negative()
+n.negate()
 ------
 - Return: BigInteger
 
