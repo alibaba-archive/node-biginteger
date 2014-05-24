@@ -271,6 +271,18 @@ describe('BigInteger', function () {
     done();
   });
 
+  it('#fromString("-0").toString() === "-"', function (done) {
+    var n = BigInteger.fromString('-0');
+    n.toString().should.eql('0');
+
+    var n = BigInteger.fromString('-0000001');
+    n.toString().should.eql('-1');
+
+    var n = BigInteger.fromString('-000000');
+    n.toString().should.eql('0');    
+
+    done();
+  });
 
 });
 
