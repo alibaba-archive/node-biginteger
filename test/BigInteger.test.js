@@ -284,5 +284,19 @@ describe('BigInteger', function () {
     done();
   });
 
+  it('#fromString("zzzzzzz", 36).toString(36) === "zzzzzzz"', function (done) {
+    var n = BigInteger.fromString('zzzzzzz', 36);
+    n.toString(36).should.eql('zzzzzzz');
+
+    n = BigInteger.fromString('-zzzzzzzyyyyyy', 36);
+    n.toString(36).should.eql('-zzzzzzzyyyyyy');
+
+    n = BigInteger.fromString('hhhhhhhhhhhh', 18);
+    n.toString(18).should.eql('hhhhhhhhhhhh');
+
+    done();
+  });
+
+
 });
 
