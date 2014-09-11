@@ -1,35 +1,32 @@
-TESTS = $(shell ls -S `find test -type f -name "*.test.js" -print`)
-TIMEOUT = 10000
+TESTS = test/*.test.js
+REPORTER = spec
+TIMEOUT = 5000
 MOCHA_OPTS =
-REPORTER = tap
-PROJECT_DIR = $(shell pwd)
-JSCOVERAGE = ./node_modules/jscover/bin/jscover
-NPM_REGISTRY = --registry=http://registry.npm.taobao.net
-NPM_INSTALL_PRODUCTION = PYTHON=`which python2.6` NODE_ENV=production tnpm install $(NPM_REGISTRY)
-NPM_INSTALL_TEST = PYTHON=`which python2.6` NODE_ENV=test tnpm install $(NPM_REGISTRY)
 
 install:
-	@$(NPM_INSTALL_PRODUCTION)
+	@npm install
 
 install-test:
 	@$(NPM_INSTALL_TEST)
 
-#test: install-test
-test:
+test: install
 	@NODE_ENV=test ./node_modules/mocha/bin/mocha \
-	-b --reporter $(REPORTER) --timeout $(TIMEOUT) $(MOCHA_OPTS) $(TESTS)
+		--reporter $(REPORTER) \
+		--timeout $(TIMEOUT) \
+		$(MOCHA_OPTS) \
+		$(TESTS)
 
-cov:
-	@rm -rf cov
-	@$(JSCOVERAGE) --exclude=test --exclude=public --exclude=tmp \
-		--exclude=bin --exclude=conf . cov
-	@cp -rf ./node_modules ./test cov
-
-test-cov: cov
-	@$(MAKE) -C ./cov test REPORTER=dot
-	@$(MAKE) -C ./cov test REPORTER=html-cov > $(PROJECT_DIR)/coverage.html
-
-clean:
+test-cov:
 	@rm -f coverage.html
+	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=html-cov > coverage.html
+	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=travis-cov
+	@ls -lh coverage.html
 
-.PHONY: install install-test test test-cov cov clean
+test-coveralls:
+	@$(MAKE) test
+	@echo TRAVIS_JOB_ID $(TRAVIS_JOB_ID)
+	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
+
+test-all: test test-cov
+
+.PHONY: install test test-cov test-all test-coveralls

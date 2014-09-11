@@ -24,10 +24,17 @@
     "pedding": "*",
     "jscover": "*",
     "bignum": "*",
-    "benchmark": "*"
+    "benchmark": "*",
+    "coveralls": "*",
+    "mocha-lcov-reporter": "*",
+    "blanket": "*"
   },
   "scripts": {
-    "test": "make test"
+    "test": "make test",
+    "travis-cov": { "threshold": 93 }
+  },
+  "config": {
+    "blanket": { "pattern": "lib" }
   },
   "main": "index.js",
   "readme": "## BigInteger \n > @see java.math.BigInteger",

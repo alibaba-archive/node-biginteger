@@ -99,6 +99,10 @@ n.divide(val)
 - val BigInteger
 - Return: BigInteger 
 
+n.remainder(val)
+- val BigInteger
+- Return: BigInteger
+
 Benchmark
 ------
 ```
