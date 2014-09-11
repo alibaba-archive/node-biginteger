@@ -9,10 +9,10 @@
     "name": "汤尧",
     "email": "tangyao@alibaba-inc.com"
   },
-  "homepage": "https://github.com/node-modules/BigInteger",
+  "homepage": "https://github.com/node-modules/node-biginteger",
   "repository": {
     "type": "git",
-    "url": "git@github.com:node-modules/BigInteger.git"
+    "url": "git@github.com:node-modules/node-biginteger.git"
   },
   "dependencies": {
     "debug": "0.8.0",
