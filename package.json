@@ -12,29 +12,30 @@
   "homepage": "https://github.com/node-modules/node-biginteger",
   "repository": {
     "type": "git",
-    "url": "git@github.com:node-modules/node-biginteger.git"
+    "url": "git://github.com/node-modules/node-biginteger.git"
   },
   "dependencies": {
-    "debug": "0.8.0",
-    "long": "1.1.2"
+    "bignum": "~0.9.0",
+    "long": "~2.1.0"
   },
   "devDependencies": {
-    "should": "*",
-    "mocha": ">=1.2.1",
-    "pedding": "*",
-    "jscover": "*",
-    "bignum": "*",
-    "benchmark": "*",
-    "coveralls": "*",
-    "mocha-lcov-reporter": "*",
-    "blanket": "*"
+    "autod": "*",
+    "benchmark": "~1.0.0",
+    "contributors": "*",
+    "cov": "*",
+    "istanbul-harmony": "*",
+    "jshint": "*",
+    "mocha": "*",
+    "pedding": "~1.0.0",
+    "should": "~4.0.4"
   },
   "scripts": {
-    "test": "make test",
-    "travis-cov": { "threshold": 93 }
+    "test": "make test"
   },
   "config": {
-    "blanket": { "pattern": "lib" }
+    "cov": {
+      "threshold": 100
+    }
   },
   "main": "index.js",
   "readme": "## BigInteger \n > @see java.math.BigInteger",
