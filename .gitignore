@@ -6,3 +6,4 @@ coverage.html
 .DS_store
 test/config.js
 .idea/
+coverage/

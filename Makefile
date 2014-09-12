@@ -13,29 +13,17 @@ test: install
 		$(MOCHA_OPTS) \
 		$(TESTS)
 
-test-cov cov: install
-	@NODE_ENV=test node --harmony \
-		node_modules/.bin/istanbul cover --preserve-comments \
-		./node_modules/.bin/_mocha \
-		-- \
-		--reporter $(REPORTER) \
-		--timeout $(TIMEOUT) \
-		$(MOCHA_OPTS) \
-		$(TESTS)
-	@./node_modules/.bin/cov coverage
+test-cov:
+	@rm -f coverage.html
+	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=html-cov > coverage.html
+	@$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=travis-cov
+	@ls -lh coverage.html
 
-test-travis: install
-	@NODE_ENV=test node --harmony \
-		node_modules/.bin/istanbul cover --preserve-comments \
-		./node_modules/.bin/_mocha \
-		--report lcovonly \
-		-- \
-		--reporter dot \
-		--timeout $(TIMEOUT) \
-		$(MOCHA_OPTS) \
-		$(TESTS)
+test-coveralls: test
+	@echo TRAVIS_JOB_ID $(TRAVIS_JOB_ID)
+	@-$(MAKE) test MOCHA_OPTS='--require blanket' REPORTER=mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
 
-test-all: install jshint test cov
+test-all: test test-cov
 
 autod: install
 	@./node_modules/.bin/autod -w --prefix "~"

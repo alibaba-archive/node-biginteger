@@ -23,18 +23,27 @@
     "benchmark": "~1.0.0",
     "contributors": "*",
     "cov": "*",
-    "istanbul-harmony": "*",
     "jshint": "*",
     "mocha": "*",
     "pedding": "~1.0.0",
-    "should": "~4.0.4"
+    "should": "*",
+    "blanket": "*",
+    "travis-cov": "*",
+    "coveralls": "*",
+    "mocha-lcov-reporter": "*"
   },
   "scripts": {
     "test": "make test"
   },
   "config": {
-    "cov": {
-      "threshold": 100
+    "blanket": {
+      "pattern": "BigInteger/lib",
+      "data-cover-flags": {
+        "debug": false
+      }
+    },
+    "travis-cov": {
+      "threshold": 70
     }
   },
   "main": "index.js",
