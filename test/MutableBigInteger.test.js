@@ -250,7 +250,6 @@ describe('MutableBigInteger', function () {
     
     done();
   });
-
 });
 
 

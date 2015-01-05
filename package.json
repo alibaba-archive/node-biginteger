@@ -1,6 +1,6 @@
 {
   "name": "node-biginteger",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "BigInteger",
   "keywords": [
     "BigInteger"
@@ -15,8 +15,8 @@
     "url": "git://github.com/node-modules/node-biginteger.git"
   },
   "dependencies": {
-    "bignum": "~0.9.0",
-    "long": "~2.1.0"
+    "long": "~2.1.0",
+    "clone": "~0.2.0"
   },
   "devDependencies": {
     "autod": "*",
